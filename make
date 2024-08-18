@@ -260,6 +260,7 @@ check_data() {
     # 9.KERNEL_TAGS  10.PLATFORM  11.FAMILY  12.BOOT_CONF  13.CONTRIBUTORS  14.BOARD  15.BUILD
     [[ -f "${model_conf}" ]] || error_msg "Missing model config file: [ ${model_conf} ]"
 
+    echo -e "===${model_conf}  ${make_board}"
     # Convert ${model_conf} to ${model_txt} for [ openwrt-install-amlogic ], Just the first 8 columns.
     cat ${model_conf} |
         sed -e 's/NULL/NA/g' -e 's/[ ][ ]*//g' |
@@ -321,8 +322,10 @@ check_data() {
 
         # Merge the same key values
         if [[ -n "${tags_list[${key}]}" ]]; then
+            echo -e ">>>${key} ${value}"
             tags_list[${key}]+=" ${value}"
         else
+            echo -e ">>>>${key} ${value}"
             tags_list[${key}]="${value}"
         fi
     done
