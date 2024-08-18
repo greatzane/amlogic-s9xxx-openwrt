@@ -72,7 +72,7 @@ host_release="$(cat /etc/os-release | grep '^VERSION_CODENAME=.*' | cut -d'=' -f
 op_release="etc/flippy-openwrt-release"
 
 # Dependency files download repository
-depends_repo="https://github.com/ophub/amlogic-s9xxx-armbian"
+depends_repo="https://github.com/greatzane/amlogic-s9xxx-armbian"
 # U-BOOT files download repository
 uboot_repo="https://github.com/ophub/u-boot"
 # Firmware files download repository
