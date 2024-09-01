@@ -209,12 +209,12 @@ on:
       builder_name:
         description: "Set OpenWrt builder signature."
         required: false
-        default: "ophub"
+        default: "Zane"
         type: choice
         options:
           - ophub
           - angel
-          - yourname
+          - Zane
 
 env:
   TZ: America/New_York
@@ -291,7 +291,7 @@ jobs:
 
       - name: Packaging OpenWrt
         if: ${{ steps.imagebuilder.outputs.status }} == 'success' && !cancelled()
-        uses: ophub/amlogic-s9xxx-openwrt@main
+        uses: greatzane/amlogic-s9xxx-openwrt@main
         with:
           openwrt_path: imagebuilder/bin/targets/*/*/*rootfs.tar.gz
           openwrt_board: ${{ inputs.openwrt_board }}
